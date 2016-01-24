@@ -7,14 +7,14 @@
 PUSH=$1
 BSPEED=$2
 : ${PUSH:=false}
-: ${BSPEED:="21"}
+: ${BSPEED:="12"}
 BVARIANT=$3
 
 source build/envsetup.sh
-source jet/credentials.sh
+#source jet/credentials.sh
 
 echo "Setting Lunch Menu to ${BVARIANT}"
-lunch oct_${BVARIANT}-userdebug
+lunch to_${BVARIANT}-userdebug
 
 ## Clean Up Previous Builds as well as old md5sum files
 make installclean && rm -rf out/target/product/*/*md5sum
@@ -28,18 +28,18 @@ else
 PUSH=false
 fi
 
-if [ ! -d "${COPY_DIR}/${BDATE}" ]; then
-	echo "Creating directory for ${COPY_DIR}/${BDATE}"
-	mkdir -p ${COPY_DIR}/${BDATE}
-fi
+#if [ ! -d "${COPY_DIR}/${BDATE}" ]; then
+	#echo "Creating directory for ${COPY_DIR}/${BDATE}"
+	#mkdir -p ${COPY_DIR}/${BDATE}
+#fi
 
-echo "Starting brunch with ${BSPEED} threads for ${COPY_DIR}"
+echo "Starting brunch with ${BSPEED}"
 if ${PUSH}; then
 echo "Pushing to Remote after build!"
 fi
 # Build command
-brunch ${BVARIANT} -j${BSPEED}
-find ${OUT} '(' -name 'Oct*' -size +150000 ')' -print0 |
+brunch ${BVARIANT}
+find ${OUT} '(' -name 'to*' -size +150000 ')' -print0 |
         xargs --null md5sum |
         while read CHECKSUM FILENAME
         do
