@@ -2,17 +2,28 @@
 ## Build Automation Scripts
 ##
 ## Copywrite 2014 - Donald Hoskins <grommish@gmail.com>
+<<<<<<< HEAD
 ## Updated by Richard Covington <rcovington79@gmail.com>
+=======
+>>>>>>> 562c7d5e28b26b2eeffee8053b29b26cfb6719cd
 ## on behalf of Team Octos et al.
 
 PUSH=$1
 BSPEED=$2
 : ${PUSH:=false}
+<<<<<<< HEAD
 : ${BSPEED:="16"}
 BVARIANT=$3
 
 source build/envsetup.sh
 source jet/credentials.sh
+=======
+: ${BSPEED:="12"}
+BVARIANT=$3
+
+source build/envsetup.sh
+#source jet/credentials.sh
+>>>>>>> 562c7d5e28b26b2eeffee8053b29b26cfb6719cd
 
 echo "Setting Lunch Menu to ${BVARIANT}"
 lunch to_${BVARIANT}-userdebug
@@ -34,7 +45,11 @@ fi
 	#mkdir -p ${COPY_DIR}/${BDATE}
 #fi
 
+<<<<<<< HEAD
 echo "Starting brunch with ${BSPEED} threads for ${COPY_DIR}"
+=======
+echo "Starting brunch with ${BSPEED}"
+>>>>>>> 562c7d5e28b26b2eeffee8053b29b26cfb6719cd
 if ${PUSH}; then
 echo "Pushing to Remote after build!"
 fi
@@ -62,7 +77,11 @@ find ${OUT} '(' -name 'to*' -size +150000 ')' -print0 |
 			echo "Pulling OTA manifest"
 			wget http://www.teamoctos.com/ota.xml
 			echo "Updating manifest for ${OTAFILE}"
+<<<<<<< HEAD
 	                sed -i "s/to-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-${BVARIANT}/${OTAFILE}/g" ota.xml
+=======
+	                sed -i "s/Oct-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-${BVARIANT}/${OTAFILE}/g" ota.xml
+>>>>>>> 562c7d5e28b26b2eeffee8053b29b26cfb6719cd
      			echo "Removing existing file from remote."
 			ssh ${RACF}@${RHOST} "rm -rf ${ROUT}/${BVARIANT}/*.zip" < /dev/null
      			echo "Pushing new file ${OTAFILE} to remote"
@@ -74,3 +93,7 @@ find ${OUT} '(' -name 'to*' -size +150000 ')' -print0 |
 		fi
 	fi
         done
+<<<<<<< HEAD
+=======
+
+>>>>>>> 562c7d5e28b26b2eeffee8053b29b26cfb6719cd
