@@ -2,28 +2,20 @@
 ## Build Automation Scripts
 ##
 ## Copywrite 2014 - Donald Hoskins <grommish@gmail.com>
-<<<<<<< HEAD
 ## Updated by Richard Covington <rcovington79@gmail.com>
-=======
->>>>>>> 562c7d5e28b26b2eeffee8053b29b26cfb6719cd
 ## on behalf of Team Octos et al.
 
 PUSH=$1
 BSPEED=$2
 : ${PUSH:=false}
-<<<<<<< HEAD
-: ${BSPEED:="16"}
-BVARIANT=$3
-
-source build/envsetup.sh
-source jet/credentials.sh
-=======
 : ${BSPEED:="12"}
 BVARIANT=$3
 
 source build/envsetup.sh
+source jet/credentials.sh
+
+source build/envsetup.sh
 #source jet/credentials.sh
->>>>>>> 562c7d5e28b26b2eeffee8053b29b26cfb6719cd
 
 echo "Setting Lunch Menu to ${BVARIANT}"
 lunch to_${BVARIANT}-userdebug
