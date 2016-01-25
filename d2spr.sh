@@ -9,11 +9,7 @@
 ## you set it otherwise.  Careful, or it will melt your machine!
 BSPEED=$2
 PUSH=$1
-<<<<<<< HEAD
-: ${BSPEED:="16"}
-=======
-: ${BSPEED:="21"}
->>>>>>> 562c7d5e28b26b2eeffee8053b29b26cfb6719cd
+: ${BSPEED:="12"}
 : ${PUSH:=false}
 BVARIANT=`basename $0 | cut -f 1 -d "."`
 jet/bscript.sh ${PUSH} ${BSPEED} ${BVARIANT}
