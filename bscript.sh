@@ -37,11 +37,8 @@ fi
 	#mkdir -p ${COPY_DIR}/${BDATE}
 #fi
 
-<<<<<<< HEAD
 echo "Starting brunch with ${BSPEED} threads for ${COPY_DIR}"
-=======
 echo "Starting brunch with ${BSPEED}"
->>>>>>> 562c7d5e28b26b2eeffee8053b29b26cfb6719cd
 if ${PUSH}; then
 echo "Pushing to Remote after build!"
 fi
