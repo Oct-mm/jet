@@ -554,7 +554,7 @@ done
 if [ "$MOVE" = y ]; then
   for DEVICE in ${DEVICES[@]}; do
     ROMFOLDER=$(get_build_var OUT_DIR)/target/product/"$DEVICE"
-    ROM=$(ls -t "$ROMFOLDER"/*"$DEVICE"*"COMMUNITY.zip" | head -1)
+    ROM=$(ls -t "$ROMFOLDER"/*"$DEVICE"*"OCT-M-COMMUNITY.zip" | head -1)
     ROMMD="$ROM".md5sum
       info "Moving "$DEVICE" ROM to "$STORAGE""
       mkdir -p "$STORAGE"/"$DEVICE"/md5 &&
