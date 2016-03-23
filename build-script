@@ -550,6 +550,18 @@ for DEVICE in ${DEVICES[@]}; do
   echo ""
 done
 
+# Move devices to storage
+if [ "$MOVE" = y ]; then
+  for DEVICE in ${DEVICES[@]}; do
+    ROMFOLDER=$(get_build_var OUT_DIR)/target/product/"$DEVICE"
+    ROM=$(ls -t "$ROMFOLDER"/*"$DEVICE"*"COMMUNITY.zip" | head -1)
+    ROMMD="$ROM".md5sum
+      info "Moving "$DEVICE" ROM to "$STORAGE""
+      mkdir -p "$STORAGE"/"$DEVICE"/md5 &&
+      mv "$ROM" "$STORAGE"/"$DEVICE" &&
+      mv "$ROMMD" "$STORAGE"/"$DEVICE"/md5
+  done
+
 # How long did the build take altogether?
 echo ""
 TET=$(date +%s)
